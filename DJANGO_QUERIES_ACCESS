@@ -1,0 +1,39 @@
+this will help to easily access and see or make things easy by running thins direactly in terminal rather than onpening or running a test server every time or refreshing
+
+
+
+1.  HOW TO USE QUERIES USING DJANGO ORM 
+    we can see all the objects/entries 
+    write: "python manage.py shell" 
+    by  this we can use all the models,etc we made .
+    
+    "from HOME_first_app import Contact" we will import the model we want to see
+
+2.  HOW TO VIEW ALL OBJECTS ?-->
+    "Contact.objects.all()"
+    O/P= all the objects we created
+
+3.  to see 1st or any other contact-
+    "Contact.objects.all()[0]"
+    O/P=we will get first contact
+
+4.  to see an specific field    inside my model-
+    "Contact.objects.all()[2].email
+    O/P= we will get the email of that contact
+
+5. HOT TO FILTER OUR SEARCH? FOR  EX IF WE WANT TO GET ONLY THE  QUERIES WITH specific NAME-
+    "Contact.objects.filter(name='name')"
+
+6.to change a entry,after changing always save it
+
+  ins = Contact.objects.filter(name='name',phone='1254..')[0]
+
+  ins.phone='000000'
+
+  ins.save()    
+
+
+
+
+FOR MORE VISIT DJANGO MAKE QUERIES ON GOOGLE=
+https://docs.djangoproject.com/en/4.0/topics/db/queries/

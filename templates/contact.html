@@ -1,0 +1,42 @@
+{% extends 'base.html' %}  <!--this extends the base.html , example: base.html is base template/blank spaces whereas contact.html is content/answer inside blanks  -->
+
+{% block title %}CONTACT{% endblock title %} <!--this is the block title we created in base.html template this will be added when this template is rendered -->
+{% block body %}
+<div class="container-fluid px-0 mb-4">
+  <img src="/static/contact.jpg" class="d-block w-100 mx-0" alt="...">
+</div>
+
+<div class="container" style="width:40vw ;">
+  <h1 style="text-align: center ; color: rgba(131, 28, 157, 1);animation: 3s ease-in 1s infinite reverse both running slidein;">Contact Us</h1>
+
+  <form method="post" action="/contact">
+    <!-- 'method'-there 'are two types to submit a form GET and post -->
+    <!-- 'action'- tells us who will handle post(submit) request in views in this case which is /contacts (contact function in views.py) or we can create a new urls path (in urls.py of home app)> then create a new function to handle post req separately it is upto us -->
+
+  {% csrf_token %}  <!--this is to generate a CSRF token which authenticates that submit request is coming from our website only-->
+    
+    <div class="mb-3">
+      <label for="name"  class="form-label">Enter your name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="enter ur full name">
+    </div>
+
+    <div class="mb-3">
+      <label for="email"  class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" name='email' placeholder="name@example.com">
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter yout phone number here">
+    </div>
+
+    <div class="mb-3">
+      <label for="desc" class="form-label">Your reason for contacting me ? </label>
+      <textarea class="form-control" id="desc" rows="3" name="desc" placeholder="please keep it short..."></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">SUBMIT</button>
+  </form>
+
+</div>
+{% endblock body %}
